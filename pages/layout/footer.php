@@ -98,8 +98,8 @@ immediately after the control sidebar -->
 <!-- AdminLTE App -->
 <script src="../app-assets/dist/js/adminlte.min.js"></script>
 <!-- DataTables -->
-<script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="../app-assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../app-assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->

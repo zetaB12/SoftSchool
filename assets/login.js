@@ -19,7 +19,7 @@ function validarInputs(e){
 }
 
 function validarSession(email, password){
-    parametros = {
+    let parametros = {
         "email" : email,
         "password" : password
     };

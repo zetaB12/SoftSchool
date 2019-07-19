@@ -6,7 +6,6 @@ class Usuario{
     public $cx;
 
     function __construct(){
-      
         $this -> cx = Conexion::ConectarBD();
     }
 

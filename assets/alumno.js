@@ -1,3 +1,58 @@
+// (function(){
+    
+//     var hola = function () {  
+        
+//     }
+//     hola();
+// })();
+
+//$(search());
+
+function search(query) {  
+    
+    var dates = $('#nombre').DataTable();
+$.ajax({
+    type: "POST",
+    url: "../controller/AlumnoController.php?operador=getStudentAll",
+    data: {consulta: query},
+    dataType: "HTML",
+    success: function (response) {
+        
+    }
+});
+}
+
+function init(){
+    var table = document.querySelector('#tbodyStudent');
+    $.ajax({
+        type: "GET",
+        url: '../controller/AlumnoController.php?operador=getStudentAll',        
+        success: function (response) {
+            let data = JSON.parse(response);
+            //console.log(json);
+            let html = '';
+            var i=0;
+            data.forEach(element => {
+                i++;
+                html += `<tr>
+                        <td>${i}</td>
+                        <td>${element.nombre}</td>
+                        <td>${element.apellido}</td>
+                        <td>${element.dni}</td>
+                        <td>${element.direccion}</td>
+                        <td>
+                            <button class="btn btn-success btn-sm">Editar</button>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                        </tr>`
+            });
+            table.innerHTML = html;
+        }
+    });
+}
+
+init();
+
 function RegistrarAlumno(){
     var nombre = document.querySelector('#nombre').value;
     let apellido = document.querySelector('#apellidos').value;
@@ -5,7 +60,6 @@ function RegistrarAlumno(){
     let celular = document.querySelector('#celular').value;
     let direccion = document.querySelector('#direccion').value;
     let fecha = document.querySelector('#fecha').value;
-
 
     validarAlumno(nombre, apellido, dni, celular, direccion, fecha);       
 }
@@ -45,13 +99,11 @@ function validateDates(nombre, apellido, dni, celular, direccion, fecha){
         data: parametros,
         type: 'POST',
         url: '../controller/AlumnoController.php?operador=create_alumno',
-        success: function (response) {
-            console.log(response);
+        success: function () {
+            location.href = "/SoftSchool/pages/register_student.php";
         },
         error: function () {
             console.log('error');
         }
-
-
-    })
+    });
 }

@@ -23,7 +23,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6" id="statusDni">
                             <label for="dni">Dni</label>
-                            <input type="text" class="form-control" id="dni" placeholder="Dni" >
+                            <input type="text" class="form-control" id="dni" placeholder="Dni" maxlength="8">
                         </div>
                         <div class="form-group col-md-6" id="statusCelular">
                             <label for="celular">Celular</label>

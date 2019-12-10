@@ -8,7 +8,19 @@ class Alumno{
         $this -> cx = Conexion::ConectarBD() ;
     }
 
-    function create($nombre, $apellido, $dni, $celular, $direccion, $fecha){
+    function getStudentAll(){
+        $query = "SELECT * FROM student";
+        $result = $this->cx->prepare($query);
+        $true = $result->execute();
+        if ($true) {
+            while ($fills = $result->fetch(PDO::FETCH_ASSOC)) {
+                $data[] = $fills;
+            }
+        }
+        return $data;
+    }
+
+    function createStudent($nombre, $apellido, $dni, $celular, $direccion, $fecha){
         $query = "INSERT INTO student(nombre, apellido, dni, celular, direccion, fechaNacimiento) VALUES(?,?,?,?,?,?)";
         $result = $this->cx->prepare($query);
         $result->bindParam(1, $nombre);

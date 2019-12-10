@@ -4,6 +4,13 @@ $alumno = new Alumno();
 
 switch ($_REQUEST["operador"]) {
 
+    case 'getStudentAll':
+        $data = $alumno->getStudentAll();
+        // header("Content-Type: application/json", true);
+        echo json_encode($data) ;
+        
+    break;
+
     case 'create_alumno':
 
         $nombre = $_POST['nombre'];
@@ -20,5 +27,5 @@ switch ($_REQUEST["operador"]) {
         }
         echo $response;
 
-        break;
+        break;    
 }
